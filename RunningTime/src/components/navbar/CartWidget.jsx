@@ -1,7 +1,7 @@
 
 const CartWidget = () => {
   return (
-    <i className="bi bi-cart-dash"> </i>
+    <i className="bi bi-cart-dash" style={{fontSize:30}}> </i>
   )
 }
 
