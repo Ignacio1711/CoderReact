@@ -4,12 +4,13 @@ import './App.css'
 import Navbar from './components/navbar/Navbar'
 import ItemListContainer from './components/mainContainer/ItemListContainer'
 
+
 function App() {
  
   return (
     <>
       <Navbar />
-      <ItemListContainer greeting="Hola Humano" />
+      <ItemListContainer greeting="Hola Mundo" />
     </>
   )
 }
