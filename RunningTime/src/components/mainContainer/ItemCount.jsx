@@ -26,7 +26,6 @@ const ItemCount = () => {
       
         <div className="card" style={{width:300}}>
          <div className="card-body">
-                    <h5 className="card-title">Mi producto</h5>
                     <p className="card-text">Stock disponible:  {stock}</p>
                     <button type="button" className="btn btn-light" onClick={subtractItem}><strong>-</strong> </button>
                     <label> <strong>{value}</strong> </label>

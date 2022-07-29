@@ -5,10 +5,11 @@ const ItemList = ({items}) => {
   return (
       <>
       <div>
+          <h1>Item list</h1>
         {
-             items.map ((producto)=>{
-                <Item key= {producto.id} modelo={producto.modelo} marca={producto.marca} color={producto.color}/>
-                 }
+             items.map ((producto, i)=>
+                <Item key={i} id={producto.id} modelo={producto.modelo} marca={producto.marca} color={producto.color}/>
+                 
              )
         }
       </div>
