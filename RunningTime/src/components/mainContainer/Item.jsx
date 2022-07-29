@@ -5,7 +5,7 @@ const Item = ({id,modelo,marca,color}) => {
  
         return (
             <>
-                <div >
+                <div className='card' style={{width:400}}>
                     <div>ID: {id}</div>
                     <div>Modelo : {modelo} </div>
                     <div>Marca : {marca} </div>

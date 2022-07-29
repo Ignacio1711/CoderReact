@@ -7,48 +7,49 @@ const ItemListContainer = () => {
   const [items,setItems]=useState([])
 
   useEffect(()=>{
-    setItems([
-                {
-                id:1,
-                modelo:"Sport" ,
-                marca: "Nike",
-                color: "Red"
-                },
-                {
-                id:2,
-                modelo:"Casual" ,
-                marca: "Puma",
-                color: "White"},
-                {  
-                id:3,  
-                modelo:"Formal" ,
-                marca: "CAT",
-                color: "Brown"
-              },
-              {
-                id:4,
-                modelo:"Casual" ,
-                marca: "Timberland",
-                color: "Brown"
-              },
-              { 
-              id:5,
-              modelo:"Run" ,
-              marca: "Rebook",
-              color: "Purple"
-              }]
-    )
-  },[])
+    setTimeout(()=>{
+      setItems([
+        {
+        id:1,
+        modelo:"Sport" ,
+        marca: "Nike",
+        color: "Red"
+        },
+        {
+        id:2,
+        modelo:"Casual" ,
+        marca: "Puma",
+        color: "White"},
+        {  
+        id:3,  
+        modelo:"Formal" ,
+        marca: "CAT",
+        color: "Brown"
+      },
+      {
+        id:4,
+        modelo:"Casual" ,
+        marca: "Timberland",
+        color: "Brown"
+      },
+      { 
+      id:5,
+      modelo:"Run" ,
+      marca: "Rebook",
+      color: "Purple"
+      }]
+)
+},3000)
+},[])
+       
+
+// armo la promesa con el setTimeout
 
 
-  // aca tengo que hacer la promesa con el timeout
-
-
-  return (
+return (
     <>
       <h1>Nuestros Productos</h1>
-      <ItemList items={items} />
-
+        <ItemList items={items} />
     </>
     
   )
