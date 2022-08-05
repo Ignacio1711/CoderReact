@@ -3,11 +3,13 @@ import ItemCount from '../mainContainer/ItemCount'
 
 export default function ItemDetail({item}) {
 
+console.log("este es mi item", item)
+
   return (
     <>
                 <div className='card' style={{width:400}}>
                     <img src={item.img} alt="" /> 
-                    <div> <strong>Nombre : </strong> {item.name} </div>
+                    <div> <strong>Nombre : </strong> {item.brand} </div>
                     <div> <strong>Categoria :</strong>  {item.category} </div>
                     <div> <strong>Marca:</strong>  {item.brand} </div>
                     <div><strong>Descripción: </strong> {item.desc}</div>

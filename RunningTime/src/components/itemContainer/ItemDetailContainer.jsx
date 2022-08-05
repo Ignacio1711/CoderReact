@@ -1,22 +1,34 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 
 export default function ItemDetailContainer() {
 
      const [item, setItem] = useState([])
 
+     const {idItem} = useParams()
+ 
+
     useEffect (()=>{
-        const producto =[{ id:1, name: "Ultraboost 22" ,  category: "Running Shoes" , brand: "Adidas",  price: "46000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG", desc:"" },
-         { id:2, name: "Adizero RC" ,  category: "Running Shoes" , brand: "Adidas",  price: "26000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG", desc:""},
+        const products =[{ id:1, name: "Ultraboost 22" ,  category: "Running Shoes" , brand: "Adidas",  price: "46000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG", desc:"afadfadfafafafdadfadfasf" },
+         { id:2, name: "Adizero RC" ,  category: "Running Shoes" , brand: "Adidas",  price: "26000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG", desc:"xvbxvbxvbxvbxcvbxvcb"},
          { id:3, name: "Pegasus 39" ,  category: "Running Shoes" , brand: "Nike",  price: "39000", img: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG" , desc:"Zapatilla mixta especialmente diseñada para tus entrenamientos de series y rodajes largos."},
-         { id:4, name: "v1080" ,  category: "Running Shoes" , brand: "New Balance",  price: "40000", img: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG" , desc:""},
-         { id:5, name: "Vaporfly" ,  category: "Running Shoes" , brand: "Nike",  price: "47000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG" , desc:""},
-          { id:6, name: "Fuel Cell Propel" ,  category: "Running Shoes" , brand: "New Balance",  price: "23000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG", desc:""}]
+         { id:4, name: "v1080" ,  category: "Running Shoes" , brand: "New Balance",  price: "40000", img: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG" , desc:"rtwrtwrtwrtwrtwert"},
+         { id:5, name: "Vaporfly" ,  category: "Running Shoes" , brand: "Nike",  price: "47000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG" , desc:"fgfgsfgasgfsdfgafsg"},
+          { id:6, name: "Fuel Cell Propel" ,  category: "Running Shoes" , brand: "New Balance",  price: "23000", img:"https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9f881305/products/NI_DH4072-001/NI_DH4072-001-1.JPG", desc:"56456165446541647984"}]
     
 
           const promesa = new Promise ((res, ref) =>{
             setTimeout(()=>{
-              res(producto[2])
+              if (idItem){
+                res(products[2])
+                res(products.filter((producto)=>producto.id==idItem))
+                             
+              }
+              else{
+               
+              }
+              
             }, 2000)
           })
       
@@ -25,7 +37,7 @@ export default function ItemDetailContainer() {
         setItem(res)
           })
         
-    },[])
+    },[idItem])
 
 
   return (
