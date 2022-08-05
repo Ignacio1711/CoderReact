@@ -3,8 +3,6 @@ import ItemCount from '../mainContainer/ItemCount'
 
 export default function ItemDetail({item}) {
 
-console.log("este es mi item", item)
-
   return (
     <>
                 <div className='card' style={{width:400}}>
