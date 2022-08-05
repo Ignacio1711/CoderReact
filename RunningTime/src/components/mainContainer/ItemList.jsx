@@ -5,16 +5,14 @@ const ItemList = ({items}) => {
 
   return (
       <>
-      <div className='itemList'>
+      <div className='itemList'  style={{display:"flex" , flexDirection: "row", flexWrap:"wrap", gap: 20}}>
         {           
                 items.map ((producto, i)=>
-                    <Item key={i} id={producto.id} modelo={producto.modelo} marca={producto.marca} color={producto.color}/>
+                    <Item key={i} id={producto.id} nombre={producto.name} marca={producto.brand} categoria={producto.category} color={producto.color} precio={producto.price}/>
                  )
-       
         }
       </div>
       </>
-
   )
 }
 
