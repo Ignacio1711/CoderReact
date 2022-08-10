@@ -12,7 +12,6 @@ const Item = ({id,nombre,marca, precio, imagen}) => {
                             <div>Nombre: {nombre}</div>
                             <div>Marca : {marca} </div>
                             <div>Precio : {precio} </div>
-                            <ItemCount />
                             <Link to={`/item/${id}`}>ver detalles</Link>
                         </div>
                     
