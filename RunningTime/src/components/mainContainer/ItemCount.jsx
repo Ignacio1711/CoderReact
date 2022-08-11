@@ -42,9 +42,10 @@ const onAdd =() =>{
                       <button type="button" className="btn btn-light" onClick={subtractItem} style={{margin:10}}><strong>-</strong> </button>
                       <label> <strong>{value}</strong> </label>
                       <button type="button" className="btn btn-light" onClick={addItem} style={{margin:10}}><strong>+</strong></button>
+                      <br />
+                      <button type="button" className="btn btn-success" onClick={onAdd}>Agregar al carrito</button>
                     </div>
                     <br />
-                    <button type="button" className="btn btn-success" onClick={onAdd}>Agregar al carrito</button>
                     <div id="checkout" style={{display:"none", marginTop:10}}>
                     <Link to="/cart"><button type="button" className="btn btn-success"> Finalizar Compra</button></Link>
                     </div>

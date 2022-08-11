@@ -5,6 +5,7 @@ import ItemDetail from './ItemDetail'
 export default function ItemDetailContainer() {
 
      const [item, setItem] = useState([])
+     const [loading, setLoading] = useState(true)
 
      const {idItem} = useParams()
  
@@ -35,7 +36,7 @@ export default function ItemDetailContainer() {
           //Llamo a la promesa y si se ejecuta bien, llama al modificador de estado de item.
        promesa.then((res)=>{
         setItem(res)
-          })
+          }).finally(()=>setLoading())
         
     },[idItem])
 
@@ -43,7 +44,8 @@ export default function ItemDetailContainer() {
   return (
       <>
       <h1>Detalle de producto</h1>
-      <ItemDetail item={item}/>
+      {loading ? (<div class="spinner-grow " role="status"></div>) : (<ItemDetail item={item}/>)}
+      
       </>
     
   )

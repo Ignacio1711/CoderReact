@@ -5,6 +5,7 @@ import ItemList from "./ItemList"
 const ItemListContainer = () => {
   
   const [items,setItems]=useState([])
+  const [loading, setLoading] = useState(true)
 
   const {idCategory} = useParams() 
  
@@ -20,6 +21,7 @@ const ItemListContainer = () => {
 
      // Armo la promesa con el timeout
     const miPromesa = new Promise ((res, ref) =>{
+      setLoading(true)
       setTimeout(()=>{
         if (!idCategory) {
           res(products)
@@ -33,18 +35,14 @@ const ItemListContainer = () => {
     //Llamo a la promesa y si se ejecuta bien, llama al modificador de estado de item.
     miPromesa.then((res)=>{
       setItems(res)
-    })
+    }).finally(()=>setLoading(false))
 
 },[idCategory])
        
-
-// armo la promesa con el setTimeout
-
-
 return (
     <>
       <h1>Nuestros Productos</h1>
-        <ItemList items={items} />
+        {loading ? (<div class="spinner-grow" role="status"> </div>)  : ( <ItemList items={items} />)  }
     </>
     
   )
