@@ -6,25 +6,28 @@ import ItemListContainer from './components/mainContainer/ItemListContainer'
 import ItemDetailContainer from './components/itemContainer/ItemDetailContainer'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Cart from './components/mainContainer/Cart'
+import CartContext from './components/context/CartContext'
 
 
 function App() {
- 
-  return (
-    <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-         <Route path="/category/:idCategory" element={<ItemListContainer />} />
-          <Route path="/item/:idItem" element={<ItemDetailContainer />} />
-          <Route path ="/cart" element ={<Cart />}/>
-          <Route path="/*" element={<p>404</p>} />
-        </Routes>
-      </BrowserRouter>
-            
-    </>
-  )
+
+return (
+<>
+  <CartContext>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:idCategory" element={<ItemListContainer />} />
+        <Route path="/item/:idItem" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<Cart />}/>
+        <Route path="/*" element={<p>404</p>} />
+      </Routes>
+    </BrowserRouter>
+  </CartContext>
+
+</>
+)
 }
 
-export default App 
+export default App

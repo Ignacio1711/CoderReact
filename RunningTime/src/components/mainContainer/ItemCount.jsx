@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { cartContext } from '../context/CartContext';
 
-const ItemCount = () => {
- 
+
+
+const ItemCount = (nombre, marca, precio) => {
+    const {cart, setCart} = useContext(cartContext) // preparo el uso del contexto
+
     const [value, setValue] = useState(0);
     const [stock, setStock] = useState(5);
     let initial = 5
@@ -28,6 +32,9 @@ const onAdd =() =>{
     ItemCountContainer.style.display = "none"
     const checkout= document.getElementById("checkout")
     checkout.style.display = "block"
+    // envío el objeto al contexto
+    cart.push = {id: id, nombre: nombre, marca: marca, precio: precio, cantidad: value }
+
   }
  
 }
