@@ -4,12 +4,25 @@ export const cartContext = createContext()
 
 export default function CartContext({children}) {
     const  [cart, setCart] = useState([])
+ 
+    function agregaItem (item) {
+      let array = [...cart]
+     const existe = array.find(elem => elem.id == item.id)
 
+       if (existe){
+       console.log("El elemento ya existe - ver como aumentar cantidad")
+       }else{
+       cart.push(item)
+      console.log(cart)
+       }
+    }
+    
+    
   return (
       <>
-        <div>CartContext</div>
-        <cartContext.Provider value ={{cart, setCart}}>
-            {children}    
+        
+        <cartContext.Provider value ={{cart, setCart, agregaItem}}>
+          {children}    
         </cartContext.Provider>   
       </>
    

@@ -5,8 +5,8 @@ import { cartContext } from '../context/CartContext';
 
 
 
-const ItemCount = (nombre, marca, precio) => {
-    const {cart, setCart} = useContext(cartContext) // preparo el uso del contexto
+const ItemCount = (id, nombre, marca, precio) => {
+    const {agregaItem} = useContext(cartContext) // preparo el uso del contexto
 
     const [value, setValue] = useState(0);
     const [stock, setStock] = useState(5);
@@ -32,8 +32,10 @@ const onAdd =() =>{
     ItemCountContainer.style.display = "none"
     const checkout= document.getElementById("checkout")
     checkout.style.display = "block"
-    // envío el objeto al contexto
-    cart.push = {id: id, nombre: nombre, marca: marca, precio: precio, cantidad: value }
+
+    // Guardo el objeto en la variable del  contexto con la cantidad
+   const agregado = {id: id, nombre: nombre, marca: marca, precio: precio, cantidad: value }
+   agregaItem(agregado.id)
 
   }
  

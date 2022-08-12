@@ -44,7 +44,7 @@ export default function ItemDetailContainer() {
   return (
       <>
       <h1>Detalle de producto</h1>
-      {loading ? (<div class="spinner-grow " role="status"></div>) : (<ItemDetail item={item}/>)}
+      {loading ? (<div className="spinner-grow " role="status"></div>) : (<ItemDetail item={item}/>)}
       
       </>
     
